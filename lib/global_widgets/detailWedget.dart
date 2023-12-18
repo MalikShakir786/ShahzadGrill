@@ -20,8 +20,6 @@ class _detailWedgitState extends State<detailWedgit> {
     return SingleChildScrollView(
       child: Container(
         color: Color(0xFFFFF1E5),
-        width: 450,
-        height: 1000,
         child: Padding(
           padding: const EdgeInsets.only(top: 15.0, left: 24, right: 24),
           child: Column(
@@ -32,7 +30,7 @@ class _detailWedgitState extends State<detailWedgit> {
                   width: 300,
                   height: 300,
                   child: Image(
-                    image: AssetImage('lib/assests/images/dish.png'),
+                    image: AssetImage('assets/images/dish.png'),
                   ),
                 ),
               ),
@@ -40,7 +38,7 @@ class _detailWedgitState extends State<detailWedgit> {
                 "$type",
                 style: TextStyle(
                   color: Color(0xFF333333),
-                  fontSize: 24,
+                  fontSize: 20,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w300,
                   height: 0,
@@ -57,7 +55,7 @@ class _detailWedgitState extends State<detailWedgit> {
                       "$dishName",
                       style: TextStyle(
                         color: Color(0xFF0C0C0C),
-                        fontSize: 24,
+                        fontSize: 21,
                         fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w700,
                         height: 0,
@@ -69,7 +67,7 @@ class _detailWedgitState extends State<detailWedgit> {
                       child: Container(
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
@@ -144,7 +142,7 @@ class _detailWedgitState extends State<detailWedgit> {
                         letterSpacing: -0.14,
                       ),
                     ),
-                    SizedBox(width: 155),
+                    Spacer(),
                     InkWell(
                       onTap: () {
                         // Handle button click
@@ -211,15 +209,12 @@ class _detailWedgitState extends State<detailWedgit> {
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     shoowBox("Size", "Medium"),
-                    SizedBox(
-                      width: 10,
-                    ),
+
                     shoowBox("Energy", "554 KCal"),
-                    SizedBox(
-                      width: 10,
-                    ),
+
                     shoowBox("Delivery", "45 mint"),
                   ],
                 ),
@@ -238,48 +233,20 @@ class _detailWedgitState extends State<detailWedgit> {
                   ),
                 ),
               ),
-              Expanded(
-                child: ListView(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 10,
-                        ),
-                        buildIngredient('Ingredients'),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        buildIngredient('1 tbsp olive oil'),
-                        // SizedBox(
-                        //   height: 15,
-                        // ),
-                        buildIngredient('2 lbs chicken breasts'),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        buildIngredient('1/2 tsp kosher salt'),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        buildIngredient('1/2 tsp ground black pepper'),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        buildIngredient('2 tbsp butter (if ordered)'),
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              buildIngredient('Ingredients'),
+              buildIngredient('1 tbsp olive oil'),
+              buildIngredient('2 lbs chicken breasts'),
+              buildIngredient('1/2 tsp kosher salt'),
+              buildIngredient('1/2 tsp ground black pepper'),
+              buildIngredient('2 tbsp butter (if ordered)'),
+              SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(bottom: 50, left: 100),
                 child: ElevatedButton(
                   onPressed: () => {},
                   child: Text('ORDER NOW'),
                   style: ElevatedButton.styleFrom(
-                    primary: (Color(0xFFFF9431)),
+                    primary: Colors.deepOrangeAccent,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0)),
                     minimumSize: Size(163, 48),
@@ -294,16 +261,19 @@ class _detailWedgitState extends State<detailWedgit> {
   }
 
   Widget buildIngredient(String ingredient) {
-    return Text(
-      ingredient,
-      style: TextStyle(
-        color: Color(0xFF0C0C0C),
-        fontSize: 14,
-        fontFamily: 'DM Sans',
-        fontWeight: FontWeight.w400,
-        height: 0.10,
-        letterSpacing: -0.42,
-      ),
+    return Column(
+      children: [
+        SizedBox(height: 3,),
+        Text(
+          ingredient,
+          style: TextStyle(
+            color: Color(0xFF0C0C0C),
+            fontSize: 14,
+            fontFamily: 'DM Sans',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -316,8 +286,8 @@ class shoowBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 111.33,
-      height: 65,
+      width: 110,
+      height: 75,
       //color: Colors.white,
       decoration: ShapeDecoration(
           color: Colors.white,
@@ -330,7 +300,6 @@ class shoowBox extends StatelessWidget {
           left: 10,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -345,9 +314,6 @@ class shoowBox extends StatelessWidget {
                     letterSpacing: -0.42,
                   ),
                 ),
-                SizedBox(
-                  width: 40,
-                ),
               ],
             ),
             SizedBox(
@@ -360,7 +326,6 @@ class shoowBox extends StatelessWidget {
                 fontSize: 18,
                 fontFamily: 'DM Sans',
                 fontWeight: FontWeight.w500,
-                height: 0,
                 letterSpacing: -0.54,
               ),
             )
