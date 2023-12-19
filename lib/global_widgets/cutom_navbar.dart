@@ -21,7 +21,6 @@ class CustomNavbar extends StatelessWidget {
           children: [
             GestureDetector(
                 onTap: (){
-                  Navigator.pop(context);
                 },
                 child: Icon(Icons.arrow_back)),
             Align(

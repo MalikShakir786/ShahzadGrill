@@ -18,7 +18,7 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
         activeColorSecondary: Colors.deepOrangeAccent,
         activeColorPrimary: Colors.white,
-        inactiveColorPrimary: Colors.black,
+        inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.call,size: 30,),
@@ -28,7 +28,7 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
         activeColorSecondary: Colors.deepOrangeAccent,
         activeColorPrimary: Colors.white,
-        inactiveColorPrimary: Colors.black,
+        inactiveColorPrimary: Colors.white,
       ),
 
     ];

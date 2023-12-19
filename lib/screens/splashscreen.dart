@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import 'package:lottie/lottie.dart';
-import 'package:resturant/aboutus.dart';
+import 'package:resturant/screens/bottom_nav_bar.dart';
 
 void main() => runApp(const splashscreen());
 
@@ -27,15 +27,14 @@ class _splashscreenState extends State<splashscreen> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => about_us(),
+            builder: (context) => CustomBottomNavBar(),
           ));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
           body: SafeArea(
         child: Expanded(
           child: Column(
@@ -67,14 +66,14 @@ class _splashscreenState extends State<splashscreen> {
                             decoration: const BoxDecoration(),
                             width: MediaQuery.of(context).size.width,
                             child: const Image(
-                                image: AssetImage('lib/images/splash.jpg'))),
+                                image: AssetImage('assets/images/splash.jpg'))),
                       ),
                       Opacity(
                         opacity: 0.3,
                         child: Column(
                           children: [
                             LottieBuilder.asset(
-                                'lib/images/lottie.animation.json')
+                                'assets/images/lottie.animation.json')
                           ],
                         ),
                       )
@@ -85,7 +84,6 @@ class _splashscreenState extends State<splashscreen> {
             ],
           ),
         ),
-      )),
-    );
+      ));
   }
 }
