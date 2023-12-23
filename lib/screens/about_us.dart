@@ -1,15 +1,14 @@
-// ignore_for_file: unused_import, must_be_immutable, avoid_unnecessary_containers, use_key_in_widget_constructors, camel_case_types, unnecessary_import, avoid_web_libraries_in_flutter
-import 'dart:ffi';
+// ignore_for_file: unused_import, must_be_immutable, avoid_unnecessary_containers, use_key_in_widget_constructors, camel_case_types, unnecessary_import, avoid_web_libraries_in_flutter, prefer_const_constructors
+
 import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:resturant/global_widgets/cutom_navbar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/link.dart';
-import 'package:hexcolor/hexcolor.dart';
-
+import '../global_widgets/cutom_navbar.dart';
 
 class AboutUsScreen extends StatelessWidget {
   AboutUsScreen({super.key});
@@ -28,25 +27,27 @@ class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-          child: Column(children: [
-            CustomNavbar(title: "About Us"),
-            Container(
-              height: 250,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+      body: SafeArea(
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          CustomNavbar(title: "About Us"),
+          SingleChildScrollView(
+            child: Container(
+              height: 220,
+              width: 350.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
               ),
               clipBehavior: Clip.antiAlias,
               child: CarouselSlider(
                 items: imageList
                     .map(
                       (item) => Image.asset(
-                    item['image_path'],
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
-                )
+                        item['image_path'],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                    )
                     .toList(),
                 carouselController: carouselController,
                 options: CarouselOptions(
@@ -57,80 +58,81 @@ class AboutUsScreen extends StatelessWidget {
                   enlargeFactor: 1,
                   aspectRatio: 2,
                   viewportFraction: 1,
-                  onPageChanged: (index, reason) {
-                  },
+                  onPageChanged: (index, reason) {},
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-              color: Colors.deepOrangeAccent),
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Container(
-                    height: 40,
-                    width: 200,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        color: Colors.lightGreenAccent),
-                    child: Center(
-                      child: AnimatedTextKit(
-                        animatedTexts: [
-                          ColorizeAnimatedText('Free Home Delivery',
-                              textStyle: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FontStyle.italic),
-                              textAlign: TextAlign.center,
-                              colors: Colors.accents)
-                        ],
-                        repeatForever: true,
+          ),
+          //const SizedBox(
+          //height: 10,
+          //),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                height: 350.h,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                    color: Colors.deepOrangeAccent),
+                child: Column(children: [
+                  Padding(
+                    padding: EdgeInsets.all(10.sp),
+                    child: Container(
+                      height: 40.h,
+                      width: 200.w,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Colors.lightGreenAccent),
+                      child: Center(
+                        child: AnimatedTextKit(
+                          animatedTexts: [
+                            ColorizeAnimatedText('Free Home Delivery',
+                                textStyle: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FontStyle.italic),
+                                textAlign: TextAlign.center,
+                                colors: Colors.accents)
+                          ],
+                          repeatForever: true,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'Delivery Hour  |',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'GST 12:00PM-12:00AM',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                reusecode(number: '03055804004'),
-                reusecode(number: '03425804004'),
-                reusecode(number: '03314919293'),
-                reusecode(number: '0523571100  '),
-                const Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
+                  const SizedBox(
+                    height: 0,
+                  ),
+                  Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        padding: EdgeInsets.symmetric(horizontal: 20.sp),
+                        child: Text(
+                          'Delivery Hour  |',
+                          style: TextStyle(
+                              fontSize: 20.sp, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'GST 12:00PM-12:00AM',
+                            style: TextStyle(
+                                fontSize: 15.sp, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  reusecode(number: '03055804004'),
+                  reusecode(number: '03425804004'),
+                  reusecode(number: '03314919293'),
+                  reusecode(number: '0523571100  '),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15.sp),
                         child: Icon(
                           Icons.location_on_outlined,
                           color: Colors.brown,
@@ -138,16 +140,17 @@ class AboutUsScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 10.w,
                       ),
                       Expanded(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
                               child: Text(
                                 'Wazirabad Rd, near Bank Stop, Ugoke, Sialkot,punjab,(branch # 01), pakistan',
                                 style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FontStyle.italic,
                                     color: Colors.indigoAccent),
@@ -158,18 +161,18 @@ class AboutUsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-              ]),
+                  //const SizedBox(
+                  //height: 20,
+                  //),
+                ]),
+              ),
             ),
-          ]),
-        ),
+          ),
+        ]),
+      ),
     );
   }
 }
-
 
 class reusecode extends StatelessWidget {
   final String number;
@@ -184,32 +187,33 @@ class reusecode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(10.sp),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
             child: Icon(
               Icons.call,
               color: Colors.blueAccent,
-              size: 30,
+              size: 30.sp,
             ),
           ),
-          const SizedBox(
-            width: 20,
+          SizedBox(
+            width: 20.w,
           ),
           Row(
             children: [
               Text(
                 number,
-                style: const TextStyle(
-                    fontSize: 20,
+                style: TextStyle(
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.italic,
                     color: Colors.white),
               ),
-              const SizedBox(
-                width: 80,
+              SizedBox(
+                width: 50.w,
               ),
               Row(
                 children: [

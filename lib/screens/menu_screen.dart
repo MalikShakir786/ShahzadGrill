@@ -1,9 +1,11 @@
+// ignore_for_file: unused_import, must_be_immutable, prefer_const_constructors, sized_box_for_whitespace, duplicate_import
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:resturant/screens/detail.dart';
-
+import 'package:resturant/screens/about_us.dart';
 import '../global_widgets/cutom_navbar.dart';
-import 'about_us.dart';
 
 class MenuScreen extends StatelessWidget {
   MenuScreen({super.key});
@@ -64,16 +66,16 @@ class MenuScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               CustomNavbar(
                 title: "Menu",
               ),
               SizedBox(
-                height: 20,
+                height: 20.h,
               ),
               SizedBox(
-                height: 320,
+                height: 250,
                 child: Expanded(
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -90,7 +92,7 @@ class MenuScreen extends StatelessWidget {
                                   child: Image.asset(bannerImages[index]),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(20),
+                                  padding: EdgeInsets.all(20),
                                   child: Align(
                                     alignment: Alignment.bottomLeft,
                                     child: Container(
@@ -98,15 +100,15 @@ class MenuScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(10),
                                         color: Colors.black54,
                                       ),
-                                      width: 120,
-                                      height: 90,
+                                      width: 120.w,
+                                      height: 80,
                                       padding: EdgeInsets.all(10),
                                       child: Center(
                                           child: Text(
                                         bannerNames[index],
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 20,
+                                            fontSize: 20.sp,
                                             fontWeight: FontWeight.bold),
                                       )),
                                     ),
@@ -125,7 +127,8 @@ class MenuScreen extends StatelessWidget {
               Center(
                 child: Text(
                   "Menu",
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  style:
+                      TextStyle(fontSize: 23.sp, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(
@@ -148,43 +151,59 @@ class MenuScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => detail_Page()));
                           },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.white),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 80,
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.asset(menuImages[index])),
+                          child: Expanded(
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white),
+                              child: Expanded(
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        height: 80.h,
+                                        child: Expanded(
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                  menuImages[index])),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Expanded(
+                                        child: Text(
+                                          menuNames[index],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Expanded(
+                                        child: Text(
+                                          pricelist[index],
+                                          style: TextStyle(fontSize: 13.sp),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    menuNames[index],
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(
-                                    pricelist[index],
-                                    style: TextStyle(fontSize: 13),
-                                  ),
-                                )
-                              ],
+                              ),
                             ),
                           ),
                         ),
                       );
                     })),
               ),
-              SizedBox(height: 50,)
+              SizedBox(
+                height: 50,
+              )
             ],
           ),
         ),

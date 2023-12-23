@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -11,26 +13,27 @@ class CustomBottomNavBar extends StatelessWidget {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.home,size: 30,),
-        title: ("Home"),
-        textStyle: TextStyle(
-          fontSize: 20,fontWeight: FontWeight.w700
+        icon: Icon(
+          Icons.home,
+          size: 30,
         ),
+        title: ("Home"),
+        textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
         activeColorSecondary: Colors.deepOrangeAccent,
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.call,size: 30,),
-        title: ("Contact Us"),
-        textStyle: TextStyle(
-            fontSize: 20,fontWeight: FontWeight.w700
+        icon: Icon(
+          Icons.call,
+          size: 30,
         ),
+        title: ("Contact Us"),
+        textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
         activeColorSecondary: Colors.deepOrangeAccent,
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
-
     ];
   }
 
@@ -39,10 +42,12 @@ class CustomBottomNavBar extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(),
-        child: PersistentTabView(context, screens: [
-          MenuScreen(),
-          AboutUsScreen(),
-        ],
+        child: PersistentTabView(
+          context,
+          screens: [
+            MenuScreen(),
+            AboutUsScreen(),
+          ],
           controller: controller,
           items: _navBarsItems(),
           navBarStyle: NavBarStyle.style7,
